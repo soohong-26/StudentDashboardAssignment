@@ -1,0 +1,10 @@
+header{
+    color:#ffffff;
+    background-color: #000000;
+    text-align: center;
+    border-radius: 5px;
+}
+
+#greetUser{
+    text-align: center;
+}

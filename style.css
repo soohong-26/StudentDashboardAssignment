@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --white: #FFF;
+    --black: #111;
+    --light: #EEE;
+    --purple: #8B5CF6;
+    --color-1: #272727;
+    --color-2: #747474;
+    --color-3: #FF652F;
+    --color-4: #FFE400;
+    --color-5: #14A76C;
+    --color-6: #5DA0FF;
+    --color-7: #C14784;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-1);
+    color: var(--light);
+}
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#container{
+    display: grid;
+    gap: 4rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "greetUserGrid calendarGrid"
+                         "tasksGrid bookmarksGrid";
+}
+
+/* Header */
+header h1{
+    padding: 10px;
+    background: var(--color-1);
+    padding-left: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navigaton-bar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.anchors{
+    text-decoration: none;
+    color: var(--color-5);
+}
+
+/* Greeting Section */
+.greetUserGrid{
+    margin: 1rem;
+    color: var(--color-6);
+    font-size: 20px;
+    padding-top: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.box{
+    background: var(--color-1);
+    padding: 15px;
+    border-radius: 5px;
+    width: 80%;
+    text-align: center;
+    border: 2px solid var(--color-6);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Carousel */
+#carousel{
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    margin-top: 40px;
+    border-radius: 8px;
+    border: 2px solid var(--color-7);
+}
+  
+#image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Calendar Section */
+/* .calendarGrid{
+    width: 80%;
+    background: var(--color-2);
+    border-radius: 11px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 25px;
+} */
+
+.calendarGrid h2{
+    color: var(--color-4);
+    text-align: center;
+    padding-top: 10px;
+}
+
+.calendarGrid header{
+    display: flex;
+    align-items: center;
+    padding: 25px 30px 10px;
+    justify-content: space-between;
+}
+
+header .current-date{
+    font-size: 1.45rem;
+    font-weight: 500;
+    color: var(--color-4);
+}
+
+header .icons span{
+    height: 38px;
+    width: 38px;
+    margin: 0 0px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 38px;
+    border-radius: 50%;
+    font-size: 1.9rem;
+    color: var(--color-4);
+}
+
+header .icons span:hover{
+    background: #f2f2f2;
+}
+
+header .icons span:last-child{
+    margin-right: -10px;
+}
+
+.calendar{
+    padding: 1px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.calendar ul{
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    color: var(--color-2);
+    text-align: center;
+}
+
+.calendar .weeks li{
+    font-weight: 500;
+}
+
+.calendar .days{
+    margin-bottom: 20px;
+}
+
+.calendar .days li{
+    margin-top: 30px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.days li.inactive{
+    color: var(--color-4);
+}
+
+.days li.active{
+    color: #000;
+}
+
+.calendar ul li{
+    width: calc(100% / 7);
+    position: relative;
+}
+
+.calendar .days li::before{
+    position: absolute;
+    content: "";
+    height: 40px;
+    width: 40px;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.days li:hover::before{
+    background: #f2f2f2;
+}
+
+.days li.active::before{
+    background: var(--color-4);
+}
+
+/* Tasks */
+.tasksGrid h2{
+    text-align: center;
+}
+
+.taskContainer{
+    width: 70%;
+    position: relative;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    padding: 10px 10px;
+}
+
+#newtask{
+    background-color: #ffffff;
+    padding: 30px 10px;
+    border-radius: 5px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+#newtask input{
+    width: 70%;
+    width: 70%;
+    height: 45px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    border: 2px solid var(--color-3);
+    padding: 12px;
+    color: var(--color-3);
+    font-weight: 500;
+    position: relative;
+    border-radius: 5px;
+}
+
+#newtask input:focus{
+    outline: none;
+    border-color: #000;
+}
+
+#newtask button{
+    position: relative;
+    float: right;
+    width: 20%;
+    height: 45px;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    background-color: #e9e9e9;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+#tasks{
+    background-color: var(--white);
+    padding: 30px 20px;
+    margin-top: 60px;
+    border-radius: 10px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    position: relative;
+    color: var(--black);
+}
+
+.task{
+    background-color: var(--white);
+    height: 50px;
+    padding: 5px 10px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--light);
+}
+
+.task span{
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.task button{
+    background-color: var(--purple);
+    color: var(--white);
+    height: 100%;
+    width: 40px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.completed{
+    text-decoration: line-through;
+}
+
+/* Bookmark */
+.bookmarks{
+    justify-content: center;
+    text-align: center;
+}
+
+.bookmarksGrid h2{
+    text-align: center;
+    color: var(--color-5);
+}
+
+.bookmarks .container-bookmark{
+    margin: 10px;
+    width: 80%;
+    height: 60px;
+    background: none;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid var(--color-5);
+    color: var(--color-5);
+    font-weight: 500;
+    font-size: 17px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
